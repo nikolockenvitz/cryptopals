@@ -26,11 +26,16 @@ const letterFrequencyScore: { [letter: string]: number } = {
   x: 0.15,
   y: 2,
   z: 0.074,
+  " ": 23.7,
 };
 
-export function getFrequencyScoreForString(s: string): number {
+export function getFrequencyScoreForString(
+  s: string,
+  options: { penalty: number } = { penalty: 0 },
+): number {
   return s.split("").reduce(
-    (score, char) => score + (letterFrequencyScore[char.toLowerCase()] || 0),
+    (score, char) =>
+      score + (letterFrequencyScore[char.toLowerCase()] || options.penalty),
     0,
   );
 }

@@ -9,7 +9,7 @@ export function crackSingleByteXor(
   const keyScores: Array<{ key: number; score: number; message: string }> = [];
   for (let key = 0; key < 256; key++) {
     const message = decryptSingleByteXor(hex, key);
-    const score = getFrequencyScoreForString(message);
+    const score = getFrequencyScoreForString(message, { penalty: -0.05 });
     if (score) keyScores.push({ key, score, message });
   }
   const sortedResults = keyScores.sort((a, b) => b.score - a.score);
