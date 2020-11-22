@@ -32,9 +32,11 @@ function decryptSingleByteXor(hex: string, key: number): string {
   );
 }
 
-console.log(
-  crackSingleByteXor(
-    "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736",
-    { numberOfResults: 7 },
-  ),
-);
+if (import.meta.main) {
+  console.log(
+    crackSingleByteXor(
+      "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736",
+      { numberOfResults: 7 },
+    ),
+  );
+}
