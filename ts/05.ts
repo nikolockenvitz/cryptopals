@@ -1,8 +1,5 @@
 import { bufferToHex, hexToBuffer, stringToHex } from "./utils.ts";
 
-const input =
-  `Burning 'em, if you ain't quick and nimble I go crazy when I hear a cymbal`;
-
 export function repeatingKeyXor(
   message: ArrayBuffer,
   key: ArrayBuffer,
@@ -18,5 +15,3 @@ export function repeatingKeyXor(
 export function repeatingKeyXorHex(message: string, key: string): string {
   return bufferToHex(repeatingKeyXor(hexToBuffer(message), hexToBuffer(key)));
 }
-
-console.log(repeatingKeyXorHex(stringToHex(input), stringToHex("ICE")));
