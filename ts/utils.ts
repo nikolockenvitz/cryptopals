@@ -28,6 +28,9 @@ export function hexToString(hex: string): string {
 export function stringToHex(string: string): string {
   return string
     .split("")
-    .map((s) => s.charCodeAt(0).toString(16))
+    .map((s) => {
+      const h = s.charCodeAt(0).toString(16);
+      return h.length === 1 ? "0" + h : h;
+    })
     .join("");
 }

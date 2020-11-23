@@ -45,3 +45,12 @@ Deno.test("string to hex #2", () => {
   const x = stringToHex("Hello, World!");
   assertEquals(x, "48656c6c6f2c20576f726c6421");
 });
+
+Deno.test("string to hex #3", () => {
+  const x = stringToHex(
+    `${String.fromCharCode(1)}${String.fromCharCode(2)}${
+      String.fromCharCode(3)
+    }`,
+  );
+  assertEquals(x, "010203");
+});
